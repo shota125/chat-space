@@ -6,6 +6,9 @@
 |mail_add|string|null: false|
 |pass|string|null: false|
 |edit|string|null: false|
+### Association
+- has_many :messages
+
 
 ## messagesテーブル
 
@@ -14,6 +17,8 @@
 |text|string|null:false|
 |image|string||
 |maessage_time|integer|
+### Association
+- has_many :users
 
 ## groupsテーブル
 
