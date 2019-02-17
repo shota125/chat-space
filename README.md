@@ -2,7 +2,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_name|string|null:false, foreign_key:true|
+|name|string|null:false, primary_key:true|
 |mail_add|string|null: false|
 |pass|string|null: false|
 
@@ -26,15 +26,15 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|null:false, foreign_key:true|
+|name|string|null:false, foreign_key:true|
 
 
 ## membersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user_id|refference|null: false, foreign_key: true|
+|group_id|refference|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
