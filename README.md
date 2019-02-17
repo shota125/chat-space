@@ -3,12 +3,12 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null:false, primary_key:true|
-|mail_add|string|null: false|
+|mail|string|null: false|
 |pass|string|null: false|
 
 ### Association
 - has_many :messages
-- belongs_to :group
+- has_many :group
 - belongs_to :member
 
 ## messagesテーブル
@@ -19,7 +19,7 @@
 |image|string|null:false|
 ### Association
 - has_many :users
-- belongs_to :group
+- has_many :group
 - belongs_to :member
 
 ## groupsテーブル
