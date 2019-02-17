@@ -8,7 +8,7 @@
 
 ### Association
 - has_many :messages
-- has_many :group
+- has_many :groups
 - belongs_to :member
 
 ## messagesテーブル
@@ -18,8 +18,8 @@
 |text|string|
 |image|string|null:false|
 ### Association
-- has_many :users
-- has_many :group
+- belongs_to :user
+- has_many :groups
 - belongs_to :member
 
 ## groupsテーブル
