@@ -1,44 +1,25 @@
 .flash-box
 .wrapper
-  .chat-side
-    .side-header
-      .side-header__box
-        %p.side-header__box__user-name text
-        %ul.side-header__box__menu
-          %li.side-header__box__menu__edit-user
-            %a{href:"/groups/new"}
-              %i.fa.fa-edit
-          %li.side-header__box__menu__new-group
-            %a{href:"/users/172/edit"}
-              %i.fa.fa-cog
-    .groups
-      %a{href:"/groups/352/messages"}
-        .group
-          %p.group__group-name 岡本
-          %p.group__latest-message まだメッセージがありません
+  = render 'shared/side_bar'
+
   .chat-main
     .main-header
       .main-header__left-box
-        %h2.main-header__left-box__current-group 岡本
+        %h2.main-header__left-box__current-group テストメンバーズ
         %ul.main-header__left-box__member-list
           Members :
-          %li.main-header__left-box__member-list__member test
-      %a{href:"/groups/352/edit"}
+          %li.main-header__left-box__member-list__member
+      = link_to edit_group_path(@group) do
         .main-header__edit-btn Edit
     .messages
-      .message{"data-message_id" => "729"}
-        .message__upper-info
-          %p.message__upper-info__talker test
-          %p.message__upper-info__date 2019/02/20(Wed) 15:25:30
-        %p.message__text おはよう！
+      = render @messages
     .form
-      #form#new_message.new_message{"accept-charset" => "UTF-8", :action => "/groups/352/messages", :enctype => "multipart/form-data", :method => "post"}
-        %input{:name => "utf8", :type => "hidden", :value => "✓"}/
-        %input{:name => "authenticity_token", :type => "hidden", :value => "4oK5EUZ7QX+Jzx0zgG4FfxCUW1PWFbZ+aMxYkBioGTRI+o9Vl7+GiJ7LGtWCXTZhpVAUrpZkqAOjggeOy0WYqQ=="}/
+      = form_for [@group, @message] do |f|
         .input-box
-          %input#message_content.input-box__text{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
-          %label.input-box__image{:for => "message_image"}
-            %i.fa.fa-image
-            %input#message_image.input-box__image__file{:name => "message[image]", :type => "file"}/
-        %input.submit-btn{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
+          = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+          .form__mask
+            = f.label :image, class: 'form__mask__image' do
+              = fa_icon 'picture-o', class: 'icon'
+              = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
 
