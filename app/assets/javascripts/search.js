@@ -57,7 +57,8 @@ $("#chat-group-users").append(html);
         appndErrMsgToHTML("一致する名前はありません。")
       }
     })
-    .fail(function(res){
+    .fail(function(){
+      alert("ユーザー検索に失敗しました")
     });
   });
 });
