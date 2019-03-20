@@ -1,9 +1,16 @@
 $(function(){
 
+
   function buildHTML(message){
 
     var image = (message.image)? `<image class= "lower-message__image" src= ${message.image}>` :``
     var html = `<div class = "message" data-message-id= ${message.id} >
+
+  function buildHTML(message){
+
+    var image = (message.image)? `<image class= "lower-message__image" src= ${message.image}>` :``
+    var html = `<div class = "message">
+
                   <div class = "upper-message">
                     <div class = "upper-message__user-name">
                       ${message.user_name}
@@ -24,7 +31,10 @@ $(function(){
     return html;
   }
 
+
 //非同期メッセージ
+=======
+
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -41,13 +51,19 @@ $(function(){
       var html = buildHTML(data);
       $('.messages').append(html)
       $("form")[0].reset();
+
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
       $(".form__submit").removeAttr("disabled");
+
+      // $('.form__message').val('')
+      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+
     })
     .fail(function(){
       alert('error');
     })
   });
+
 
   //自動更新
   setInterval(update, 5000)
@@ -79,4 +95,6 @@ $(function(){
       clearInterval(interval);
     }
   }
+
+
 });
