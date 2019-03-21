@@ -9,8 +9,8 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 set :rbenv_type, :user
 set :rbenv_ruby, '2.3.1'
 
-set :ssh_options, auth_methods: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCb3Z/uxStWLC16ouf6wwH8io6bZJPULf8eqSN2XngcPTPBVYg8cR2S6ROptuh+r62AHb6UNcAMupXHjjwrTTfycM022ZJYBkfbnVQ9GA3bPeyvGu/WsZ28A8iVu5ZBf2bpl6ZehvdbD0YaB9QYGhdWH8T/IUy/bZkLb2lTQKa9OxFJBmu3xkhNS2ou3AHIMYWWv4QI3BEp9bnrUk4I0hA19Qa+tzOlpi5PAC/yKmwZEJr9YO+sbT0T1nxDkzJnvuOBbz8sbk+YWJ3y+ikEYVN7XY1wVeQAQWRME7LUzUO2697f9ECV29XcnWXqjhOpUh51SY0tCoVcbKrtz3e+NlIh shota0731',
-                  keys: "~/.ssh/shota0731.pem.pem"
+set :ssh_options, auth_methods: ['publickey'],
+                  keys: "~/.ssh/shota0731.pem"
 
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
