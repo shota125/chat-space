@@ -42,6 +42,11 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'faker'
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
 end
 
 group :development do
@@ -68,5 +73,6 @@ gem 'mini_magick'
 group :production do
   gem 'unicorn', '5.4.1'
 end
+
 
 
