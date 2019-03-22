@@ -1,3 +1,5 @@
+$(document).on('turbolinks:load', function() {
+
 $(function(){
 
 
@@ -87,4 +89,5 @@ $(function(){
       clearInterval(interval);
     }
   }
+});
 });
